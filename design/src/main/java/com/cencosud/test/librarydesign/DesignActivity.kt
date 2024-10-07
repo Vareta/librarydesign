@@ -1,5 +1,7 @@
 package com.cencosud.test.librarydesign
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,8 +19,12 @@ import com.cencosud.test.core.TestButton
 import com.cencosud.test.librarydesign.ui.theme.LibrarydesignTheme
 
 class DesignActivity : ComponentActivity() {
+    private var activityStrings: String = "Texto propio de design activity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        with(intent) {
+            getStringExtra(STRINGS)?.let { activityStrings = it }
+        }
         enableEdgeToEdge()
         setContent {
             LibrarydesignTheme {
@@ -29,6 +35,18 @@ class DesignActivity : ComponentActivity() {
                     Greeting(name = "Android", modifier = Modifier.padding(32.dp))
                     TestButton(modifier = Modifier.padding(32.dp))
                 }
+            }
+        }
+    }
+
+    companion object {
+        private const val STRINGS = "strings"
+        fun createIntent(
+            context: Context,
+            texts: String? = null
+        ): Intent {
+            return Intent(context, DesignActivity::class.java).apply {
+                putExtra(STRINGS, texts)
             }
         }
     }
@@ -50,3 +68,4 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+
