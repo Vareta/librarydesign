@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -23,9 +22,12 @@ class DesignActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LibrarydesignTheme {
-                Column(modifier = Modifier
-                    .fillMaxSize()) {
-                    Content()
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) {
+                    Greeting(name = "Android", modifier = Modifier.padding(32.dp))
+                    TestButton(modifier = Modifier.padding(32.dp))
                 }
             }
         }
@@ -39,13 +41,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         color = Color.Blue,
         modifier = modifier
     )
-}
-
-@Composable
-@Preview
-fun Content() {
-    Greeting(name = "Android")
-    TestButton(modifier = Modifier.padding(32.dp))
 }
 
 @Preview(showBackground = true)
