@@ -7,11 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.cencosud.test.core.TestButton
 import com.cencosud.test.librarydesign.ui.theme.LibrarydesignTheme
 
@@ -21,11 +21,8 @@ class DesignActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LibrarydesignTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(modifier = Modifier.padding(innerPadding)) {
-                        Greeting(name = "Android")
-                    }
-                    TestButton(modifier = Modifier)
+                Column(modifier = Modifier.fillMaxSize()) {
+                    Content()
                 }
             }
         }
@@ -38,6 +35,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
+}
+@Composable
+@Preview
+fun Content() {
+    Greeting(name = "Android")
+    TestButton(modifier = Modifier.padding(32.dp))
 }
 
 @Preview(showBackground = true)
