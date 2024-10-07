@@ -34,6 +34,7 @@ class DesignActivity : ComponentActivity() {
                 ) {
                     Greeting(name = "Android", modifier = Modifier.padding(32.dp))
                     TestButton(modifier = Modifier.padding(32.dp))
+                    Greeting(name = activityStrings, modifier = Modifier.padding(32.dp))
                 }
             }
         }
