@@ -83,7 +83,7 @@ afterEvaluate {
             register<MavenPublication>("release") {
                 groupId = "com.github.Vareta"
                 artifactId = "librarydesign"
-                version = "0.6"
+                version = "0.7"
                 afterEvaluate {
                     from(components["release"])
                 }
