@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -25,20 +24,22 @@ class DesignActivity : ComponentActivity() {
         with(intent) {
             getStringExtra(STRINGS)?.let { activityStrings = it }
         }
-        enableEdgeToEdge()
         setContent {
             LibrarydesignTheme {
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                 ) {
-                    Greeting(name = "Android", modifier = Modifier.padding(32.dp))
                     TestButton(modifier = Modifier.padding(32.dp))
-                    Greeting(name = activityStrings, modifier = Modifier.padding(32.dp))
+                    Text(modifier = Modifier.padding(32.dp), text = getString(R.string.text_1))
+                    Text(modifier = Modifier.padding(32.dp), text = getString(R.string.text_2))
+                    Text(modifier = Modifier.padding(32.dp), text = getString(R.string.text_3))
                 }
             }
         }
     }
+
 
     companion object {
         private const val STRINGS = "strings"

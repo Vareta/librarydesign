@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">librarydesign</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="text_1">Primer texto del carro</string>
+    <string name="text_2">Segundo texto del carro</string>
+    <string name="text_3">Tercer texto del carro</string>
 </resources>
